@@ -1,0 +1,13 @@
+.homeHero{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.homeHint{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
