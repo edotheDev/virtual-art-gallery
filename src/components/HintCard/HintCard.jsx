@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import './HintCard.css';
-import Background from '../../assets/images/hint.png';
+import MobileBackground from '../../assets/images/mobileHint.png';
+import DesktopBackground from '../../assets/images/hint.png';
 
 const Card = () => {
     const [isVisible, setIsVisible] = useState(true);
 
     const handleOkClick = () => {
         setIsVisible(false);
-    };
-
-    const cardContainerStyle = {
-        display: isVisible ? 'block' : 'none', // Set display to 'none' when not visible
+        const cardContainer = document.querySelector('.cardContainer');
+        cardContainer.style.display = 'none';
     };
 
     const cardStyle = {
@@ -19,26 +18,25 @@ const Card = () => {
         borderRadius: '30px',
         overflow: 'hidden',
         position: 'relative',
+        backgroundColor: '#1e1e1e',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         border: '5px solid #E9FF4A',
         boxShadow: isVisible ? '0 0 10px #E9FF4A' : 'none',
-    };
-
-    const imgStyle = {
-        height: '105%',
-        objectFit: 'cover',
+        backgroundImage: `url(${window.innerWidth <= 1023 ? MobileBackground : DesktopBackground})`, // Change background image based on screen width
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
     };
 
     return (
-        <div className="cardContainer" style={cardContainerStyle}>
+        <div className="cardContainer">
             {isVisible && (
                 <div style={cardStyle}>
                     <button className="btnOk" onClick={handleOkClick}>
                         OK
                     </button>
-                    <img style={imgStyle} src={Background} alt="hint" />
                 </div>
             )}
         </div>
@@ -46,3 +44,4 @@ const Card = () => {
 };
 
 export default Card;
+

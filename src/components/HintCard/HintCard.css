@@ -26,16 +26,4 @@
     background-color: #E9FF4A;
     color: #1e1e1e;
 }
-/* CSS for desktop and laptop devices */
-@media (min-width: 1024px) {
-    .cardContainer {
-        display: block; /* Display the card */
-    }
-}
 
-/* CSS for mobile devices */
-@media (max-width: 1023px) {
-    .cardContainer {
-        display: none; /* Hide the card */
-    }
-}
